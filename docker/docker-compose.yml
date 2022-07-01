@@ -1,0 +1,44 @@
+version: '3.9'
+networks:
+  lemoncode-challenge:
+    driver: bridge
+
+services:
+ 
+  some-mongodb:
+    image: mongo:latest
+    container_name: some-mongo
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_DATABASE: root-db
+    volumes:
+      - ./docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - ./mongodb:/data/db
+    networks:
+      - lemoncode-challenge
+  topics-api:
+    build: 
+      context: ./backend      
+      dockerfile: Dockerfile
+    container_name: backend
+    ports:
+      - 5000:5000
+    depends_on:
+     - some-mongodb
+    networks:
+      - lemoncode-challenge
+  frontend:
+    build: 
+     context: ./frontend
+     dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - 8080:8080
+    deploy:
+      replicas: 1
+    depends_on:
+    - backend
+    networks:
+      - lemoncode-challenge
