@@ -1,9 +1,10 @@
 <sup> Ejercicio 1 </sup>
 
-**DOCKERIZAR BBDD**
+**CREAR LA RED**
 
 * network create lemoncode-challenge
   
+**DOCKERIZAR BBDD**
 
 * docker run --name some-mongo --network lemoncode-challenge -v mongodb:/data/db -p 27017:27017 -d mongo
   
