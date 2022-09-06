@@ -1,6 +1,6 @@
 <sup> Ejercicio 1 </sup>
 
-**MONOLITO EN MEMORIA**
+**MONOLITO**
 
 Crear un deployment con la imagen subida en docker hub
 
