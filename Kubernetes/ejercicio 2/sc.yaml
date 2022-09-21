@@ -1,0 +1,9 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: standard
+  resourceVersion: "279"
+  uid: 2fe21239-fe2a-4160-af53-080213e4698b
+provisioner: k8s.io/minikube-hostpath
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
