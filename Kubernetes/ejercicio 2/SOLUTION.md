@@ -8,7 +8,7 @@
   
       kubectl apply -f sc.yml  
 
-- Se ha creado el fichero satetefulset. yml  (statefulset) donde está indicamos el numero de replicas que queremos tener de los pod y la imagen que van a conterner dichos pods. Además, se crea un persistenceVolume que hace referencia al storegeClass que se ha creado.
+- Se ha creado el fichero satetefulset. yml  (statefulset) donde indicamos el numero de replicas que queremos tener de los pod y la imagen que van a conterner dichos pods. Además, se crea un persistenceVolume que hace referencia al storegeClass que se ha creado.
   
        kubectl apply -f statefulset.yml
 
