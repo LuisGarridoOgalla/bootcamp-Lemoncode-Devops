@@ -6,15 +6,15 @@
 
 - Se ha creado una storeClass (sc.yml) de tipo standard que es la que permite minikube
   
-      kubectl apply -f sc.yml  
+      kubectl create -f sc.yml  
 
 - Se ha creado el fichero satetefulset. yml  (statefulset) donde indicamos el numero de replicas que queremos tener de los pod y la imagen que van a conterner dichos pods. Además, se crea un persistenceVolume que hace referencia al storegeClass que se ha creado.
   
-       kubectl apply -f statefulset.yml
+       kubectl create -f statefulset.yml
 
 - Se ha creado un servicio de tipo ClusterIP para que se puedan comunicar los pods dentro del cluster
   
-      kubectl apply -f svc.yml
+      kubectl create -f svc.yml
 
 - Una vez creado el statefulSet se han introducido los datos en la BBDD que tenemos del pod de postgres que se ha creado
   
@@ -28,11 +28,11 @@
 
 - Se ha creado un configmap (cm-todo-app.yml) el cual tiene la configuración de BBDD que se ha creado anteriormente en el statefulset y que lo necesitará el deployment que se hará de todo-app
   
-      kubectl apply -f cm-todo-app.yml
+      kubectl create -f cm-todo-app.yml
 
 - Se ha creado un deployment ( deployment-todo-app.yml) que despliega un pod con la imagen todo-app
   
-      kubectl apply -f deployment-todo-app.yml
+      kubectl create -f deployment-todo-app.yml
 
 ### Paso 3 . Acceder a todo-app desde fuera del clúster
 
