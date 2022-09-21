@@ -16,7 +16,7 @@
   
       kubectl apply -f svc.yml
 
-- Una vez creado el statefulSet se han introducido introducido los datos en la BBDD que tenemos del pod de postgres que se ha creadp
+- Una vez creado el statefulSet se han introducido los datos en la BBDD que tenemos del pod de postgres que se ha creado
   
        kubectl exec [postgres-pod-name] -it bash
       
