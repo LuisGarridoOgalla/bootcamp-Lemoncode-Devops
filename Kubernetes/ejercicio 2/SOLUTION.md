@@ -6,7 +6,7 @@
 
 - Se ha creado una storeClass (sc.yml) de tipo standard que es la que permite minikube
   
-      kubectl create -f sc.yml  
+      kubectl create -f sc.yaml  
 
 - Se ha creado el fichero satetefulset. yml  (statefulset) donde indicamos el numero de replicas que queremos tener de los pod y la imagen que van a conterner dichos pods. Además, se crea un persistenceVolume que hace referencia al storegeClass que se ha creado.
   
