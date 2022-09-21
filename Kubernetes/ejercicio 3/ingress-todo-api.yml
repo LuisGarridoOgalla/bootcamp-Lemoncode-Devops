@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  name: ingress-todo-api
+  labels:
+    name: ingress-todo-api
+spec:
+  rules:
+  - host: "lemoncode-kubernetes.com"
+    http:
+      paths:
+        - backend:
+            service:
+              name: todo-api
+              port:
+                number: 80
+          path: /api
+          pathType: Prefix
+
+      
