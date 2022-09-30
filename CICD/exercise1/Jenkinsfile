@@ -15,8 +15,7 @@ pipeline{
 
                 sh '''
                 chmod +x gradlew
-                gradle wrapper
-                ./CICD/exercise1/gradlew test
+                ./gradlew test
                 '''
             }
         }
