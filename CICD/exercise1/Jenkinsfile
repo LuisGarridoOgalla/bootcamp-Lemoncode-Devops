@@ -7,7 +7,7 @@ pipeline{
              sh '''
                 chmod +x gradlew
                 gradle wrapper
-                def file = new File("/CICD/execise1/gradle")
+                def file = new File("/CICD/execise1/gradlew")
                 ./file compileJava'''
             }
         }
