@@ -7,7 +7,8 @@ pipeline{
              sh '''
                 chmod +x gradlew
                 gradle wrapper
-                ./gradlew compileJava'''
+                def file = new File("/CICD/execise1/gradle")
+                ./file compileJava'''
             }
         }
         stage('Unit Test'){
