@@ -7,7 +7,7 @@ pipeline{
              sh '''
                 chmod +x gradlew
                 gradle wrapper
-                ./CICD/exercise1/gradlew compileJava'''
+                ./gradlew compileJava'''
             }
         }
         stage('Unit Test'){
@@ -15,6 +15,7 @@ pipeline{
 
                 sh '''
                 chmod +x gradlew
+                gradle wrapper
                 ./CICD/exercise1/gradlew test
                 '''
             }
