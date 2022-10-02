@@ -1,0 +1,33 @@
+image: gitlab/dind
+
+stages:
+  - build
+  - test
+  - build_deploy_image
+
+build:
+  # select the most appropriate image for your project
+  image: maven:3-openjdk-8
+  stage: build
+  script:
+    - mvn package -DskipTests=true
+  artifacts:
+    when: always
+    paths:
+      - target/spring-boot-hello-world-1.0.0-SNAPSHOT.jar
+  
+test:
+  image: maven:3-openjdk-8
+  stage: test
+  script:
+    - mvn test
+    
+services:
+  - docker:dind
+
+build_deploy_image:
+  stage: build_deploy_image
+  script:
+    - docker build -t springapp_image .
+    - docker run -d --name springapp springapp_image 
+   
