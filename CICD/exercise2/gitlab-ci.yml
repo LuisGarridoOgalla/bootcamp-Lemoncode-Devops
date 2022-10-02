@@ -14,10 +14,11 @@ maven:build:
     paths:
       - target/spring-boot-hello-world-1.0.0-SNAPSHOT.jar
 
-maven:test :
+maven:test:
   image: maven:3-openjdk-8
   stage: test
   script:
+    - mvn verify
     - mvn test
 
 docker:build:
@@ -31,6 +32,6 @@ docker:build:
 docker:deploy:
   stage: deploy
   before_script:
-      - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY/$CI_PROJECT_PATH
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY/$CI_PROJECT_PATH
   script:
     - docker run --name "springapp" -d -p 8080:8080 $CI_REGISTRY/$CI_PROJECT_PATH/exercise1:$CI_COMMIT_SHA
