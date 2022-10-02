@@ -14,6 +14,6 @@
 
 - deploy - En este `stage` utilizamos la imagen anteriormente creada, y la hacemos correr en nuestro local
 
-Se ha creado en gitLab un grupo y dentro se ha creado un repositorio público donde se ha subido el proyecto indicado y se ha seguido los pasos que se piden para crear un pipeline.
+Se ha creado en gitLab un grupo, dentro se ha creado un repositorio público donde se ha subido el proyecto indicado y se han seguido los pasos que se piden para crear un pipeline.
 
 https://gitlab.com/lemoncode-exercise2/springapp
