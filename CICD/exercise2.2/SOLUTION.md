@@ -71,7 +71,6 @@ cambios, aprobarlas, asignarlas, crearlas.
 
 · Push and pull al repo -> Si tiene permiso
 
-· Merge request -> Todos los permisos que tiene el perfil develp
-    develop y además puede configurar las reglas para aprobar una merge request
+· Merge request -> Todos los permisos que tiene el perfil develop y además puede configurar las reglas para aprobar una merge request
 
 · Acceder a la administración del repo -> si tiene accesso
