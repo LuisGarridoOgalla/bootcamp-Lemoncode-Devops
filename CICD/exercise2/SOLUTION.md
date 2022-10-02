@@ -28,3 +28,6 @@ Se puede verificar que se ha pasado los 4 jobs que se han declarado y se ha podi
 Por otro lado, se puede ver que se ha creado en container registry nuestra propia imagen con el tag del commmit (hay varios porque se han hecho varias pruebas)
 ![image](https://user-images.githubusercontent.com/22892039/193473749-ee06b65f-16ad-4975-aff1-e28fb843a60a.png)
 
+
+Por último, se muestra una llamada al contenedor que se ha creado con el deploy de nuestra imagen que le hemos indicado en la pipeline en el puerto 8080
+![image](https://user-images.githubusercontent.com/22892039/193474273-d0f6fc97-17f9-4910-944c-723fa2a8f896.png)
