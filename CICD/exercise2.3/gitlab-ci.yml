@@ -1,0 +1,49 @@
+stages:
+    - build
+    - test
+    - build_docker
+    - deploy    
+before_script:
+  - apt-get update -y && apt-get install openssh-client rsync -y
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - echo 'echo "$SSH_PASSPHRASE"' > ~/.ssh/.print_ssh_password
+  - chmod 700 ~/.ssh/.print_ssh_password
+  - chmod +x ~/.ssh/.print_ssh_password
+  - echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
+  - chmod 644 ~/.ssh/known_hosts
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | DISPLAY=":0.0" SSH_ASKPASS=~/.ssh/.print_ssh_password setsid ssh-add - > /dev/null
+
+
+maven:build:
+  image: maven:3-openjdk-8
+  stage: build
+  script:
+    - mvn clean package -DskipTests=true
+  artifacts:
+    when: always
+    paths:
+      - target/spring-boot-hello-world-1.0.0-SNAPSHOT.jar
+
+maven:test:
+  image: maven:3-openjdk-8
+  stage: test
+  script:
+    - mvn verify
+    - mvn test
+
+docker:build:
+    stage: build_docker
+    before_script:
+        - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY/$CI_PROJECT_PATH
+    script:
+        - docker build -t $CI_REGISTRY/$CI_PROJECT_PATH/exercise1:$CI_COMMIT_SHA .
+        - docker push $CI_REGISTRY/$CI_PROJECT_PATH/exercise1:$CI_COMMIT_SHA
+
+docker:deploy:
+  stage: deploy
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY/$CI_PROJECT_PATH
+  script:
+    - docker run --name "springapp" -d -p 8080:8080 $CI_REGISTRY/$CI_PROJECT_PATH/exercise1:$CI_COMMIT_SHA
