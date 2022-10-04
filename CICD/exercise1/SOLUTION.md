@@ -17,6 +17,6 @@ El apartado de checkout se ha hecho en el paso cuando se crea una nueva pipeline
 ![jenkins2](https://user-images.githubusercontent.com/22892039/193450329-455483f6-fc03-4c8a-bd69-94a384f00be7.png)
 
 
-Donde indicaremos el repositorio de donde queremos coger el jenkinsFile, en qué ruta se encuentra y en que rama se quiere lanzar la pipelin
+Donde indicaremos el repositorio de donde queremos coger el jenkinsFile, en qué ruta se encuentra y en qué rama se quiere lanzar la pipelin
 
 ![jenkins1](https://user-images.githubusercontent.com/22892039/193450345-c0bc47da-4e20-4034-869f-8b6c29ff3e0e.png)
