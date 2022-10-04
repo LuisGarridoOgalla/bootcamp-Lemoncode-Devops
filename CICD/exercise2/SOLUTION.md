@@ -21,7 +21,7 @@ https://gitlab.com/lemoncode-exercise2/springapp
 Para los dos últimos pasos, generar una nueva imagen de Docker a partir del Dockerfile y hacer un deploy de dicha imagen, se ha hecho en el gitlab en Local.
 
 
-Se puede verificar que se ha pasado los 4 jobs que se han declarado y se ha podido desplegar la imagen sin problema 
+Se puede verificar que se han pasado los 4 jobs que se han declarado y se ha podido desplegar la imagen sin problema 
 ![image](https://user-images.githubusercontent.com/22892039/193473624-9a39becd-def9-4e20-bfec-ead82aa0121f.png)
 
 
